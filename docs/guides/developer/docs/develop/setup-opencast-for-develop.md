@@ -176,6 +176,20 @@ To fix a NPM access error ([example](https://stackoverflow.com/questions/1615101
 
 Some IDEs attempt to use the most recent version of the JDK. Make sure that your IDE uses JDK 11.
 
+### Firefox problem on Ubuntu
+
+`FirefoxHeadless failed 2 times (timeout). Giving up.`
+
+Problem is the firefox version installed via snap. Simply remove that version and install firefox from the firefox sources via apt: https://www.omgubuntu.co.uk/2022/04/how-to-install-firefox-deb-apt-ubuntu-22-04
+
+### Problems building behind a proxy
+
+Building opencast behind a proxy can get bit of tricky.
+
+* First of all you need to define the proxy for the jvm for maven to work properly (e.g. in `/usr/lib/jvm/java-11-openjdk-amd64/conf/net.properties`).
+* Also define the proxy in `~/.m2/setings.yml`, see https://maven.apache.org/guides/mini/guide-proxies.html.
+* Later npm could fail using the proxy, in that case installing a newer nodejs and npm version installed from the nodesources may solve the issue.
+
 ## Recommended Development Tools
 
 While you can use any IDE or editor you like, we recommend the following tools.
